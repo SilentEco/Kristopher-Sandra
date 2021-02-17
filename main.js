@@ -14,6 +14,14 @@ document.querySelector("button").onclick = function () {
       console.log(xhr.status + " " + xhr.statusText);
       console.log(xhr.response);
     }
+
+    console.log(xhr.response.hdurl);
+
+    let imgUrl = xhr.response.hdurl;
+    let imgExplanation = xhr.response.explanation;
+
+    document.getElementById("spacePics").src = imgUrl;
+    document.getElementById("picExplanation").innerText = imgExplanation;
   };
   xhr.send();
 };
