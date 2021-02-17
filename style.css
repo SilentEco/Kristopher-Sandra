@@ -1,3 +1,22 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("space.png");
+  background-repeat: repeat;
+}
 img {
+  margin-top: 20px;
   width: 500px;
+  box-shadow: 2px 2px 4px lightgray;
+}
+p {
+  margin-top: 30px;
+  width: 620px;
+  text-shadow: 2px 2px 4px lightgray;
+  color: lightgrey;
+}
+
+footer {
+  margin-top: 20px;
 }
