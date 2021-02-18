@@ -13,8 +13,9 @@ img {
 p {
   margin-top: 30px;
   width: 620px;
-  text-shadow: 2px 2px 4px lightgray;
+  text-shadow: 2px 2px 7px lightgray;
   color: lightgrey;
+  text-align: center;
 }
 
 footer {
