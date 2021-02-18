@@ -20,3 +20,7 @@ p {
 footer {
   margin-top: 20px;
 }
+
+footer h2{
+    color: antiquewhite;
+}
