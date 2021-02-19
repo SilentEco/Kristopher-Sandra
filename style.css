@@ -1,7 +1,4 @@
 body {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   background-image: url("space.png");
   background-repeat: repeat;
 }
@@ -17,14 +14,17 @@ p {
   color: lightgrey;
   text-align: center;
 }
-h2{
+
+.list-name{
     color: antiquewhite;
+    margin: 60px;
+}
+.list-group{    
+    margin: 60px;
 }
 
 footer {
   margin-top: 20px;
-}
-
-footer h2{
-    color: antiquewhite;
+  text-align: center;
+  color: antiquewhite;
 }
