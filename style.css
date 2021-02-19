@@ -1,15 +1,28 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
+  margin: 10px;
   background-image: url("space.png");
   background-repeat: repeat;
+  border: solid red 2px;
 }
 
 main {
   display: flex;
   flex-direction: row;
+  border: solid blue 2px;
+  justify-content: space-between;
 }
 
 #left {
   border: solid lime 2px;
+  width: 300px;
+}
+
+.midde-section {
 }
 
 #right {
@@ -19,6 +32,7 @@ main {
   width: 300px;
   border: solid lime 2px;
 }
+
 img {
   display: flex;
   margin: 20px auto;
