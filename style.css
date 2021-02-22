@@ -11,26 +11,29 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
   border: solid blue 2px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 #left {
   border: solid lime 2px;
   width: 300px;
+  height: 600px;
 }
 
 .midde-section {
 }
 
 #right {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   text-align: center;
   width: 300px;
+  height: 600px;
   border: solid lime 2px;
+  box-sizing: border-box; 
 }
 
 img {
