@@ -1,4 +1,4 @@
-document.querySelector("button").onclick = async function () {
+document.getElementById("dailyFacts-btn").onclick = async function () {
   let url = new URL(
     "https://api.nasa.gov/planetary/apod?api_key=PCIlTkyhqe1nkB34QyF9XmZzzAj0RgkrFySr1uac"
   );
@@ -10,7 +10,7 @@ document.querySelector("button").onclick = async function () {
   xhr.onload = function () {
     if (xhr.status != 200) {
       alert("ERROR:");
-    } else {
+    } else {    
       console.log(xhr.status + " " + xhr.statusText);
       console.log(xhr.response);
     }
