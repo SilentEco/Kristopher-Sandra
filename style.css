@@ -11,30 +11,31 @@ body {
 }
 
 main {
-  /* display: flex;
-  flex-direction: row; */
-  border: solid blue 2px;
-  /* justify-content: space-between; */
+    display: flex;
+    flex-direction: row;
+    border: solid blue 2px;
+    justify-content: space-between;
 }
+
+
+/* BUTTONS */
 
 #left {
   border: solid lime 2px;
-  width: 300px;
   height: 600px;
 }
 
-.midde-section {
+.list-name {
+  color: antiquewhite;
+  margin: 60px;
 }
 
-#right {
-  /* display: flex;
-  flex-direction: column; */
-  text-align: center;
-  width: 300px;
-  height: 600px;
-  border: solid lime 2px;
-  box-sizing: border-box; 
+.list-group {
+  margin: 60px;
 }
+
+
+/* MIDDLE */
 
 img {
   display: flex;
@@ -50,14 +51,18 @@ p {
   text-align: center;
 }
 
-.list-name {
+/* WEATHER */
+#right {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 600px;
+  border: solid lime 2px;
   color: antiquewhite;
-  margin: 60px;
-}
-.list-group {
-  margin: 60px;
 }
 
+
+/* FOOTER */
 footer {
   margin-top: 20px;
   text-align: center;
