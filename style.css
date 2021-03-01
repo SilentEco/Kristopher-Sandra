@@ -7,22 +7,22 @@ body {
   margin: 10px;
   background-image: url("space.png");
   background-repeat: repeat;
-  border: solid red 2px;
+  /* border: solid red 2px; */
 }
 
 main {
     display: flex;
     flex-direction: row;
-    border: solid blue 2px;
+    /* border: solid blue 2px; */
     justify-content: space-between;
 }
-
 
 /* BUTTONS */
 
 #left {
-  border: solid lime 2px;
   height: 600px;
+  /* border: solid lime 2px; */
+  text-align: center;
 }
 
 .list-name {
@@ -53,11 +53,9 @@ p {
 
 /* WEATHER */
 #right {
-  display: flex;
-  flex-direction: column;
   text-align: center;
   height: 600px;
-  border: solid lime 2px;
+  /* border: solid lime 2px; */
   color: antiquewhite;
 }
 
