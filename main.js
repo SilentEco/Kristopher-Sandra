@@ -120,3 +120,36 @@ document.getElementById("marsBtn").onclick = async function () {
 */
   }
 };
+
+document.getElementById("asteroidsNeoWs-btn").onclick = async function () {
+  let url = new URL(
+    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=PCIlTkyhqe1nkB34QyF9XmZzzAj0RgkrFySr1uac`
+  );
+
+  let response = await fetch(url);
+  let obj = await response.json();
+
+  let nearEarth = obj.near_earth_objects;
+
+  console.log(obj);
+  console.log(obj.near_earth_objects);
+
+  //for (let i = 0; i < nearEarth.length; i++) {
+  //  const astroids = nearEarth[i];
+
+  //  console.log(`Astroids: ${astroids}`);
+  //}
+
+  console.log("vvvvvvvvvvvvvvvvvvvvvvvvvv");
+  console.log("NAME: " + obj.near_earth_objects[today][0].name);
+  console.log(
+    "HAZARDOUS: " +
+      obj.near_earth_objects[today][0].is_potentially_hazardous_asteroid
+  );
+};
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, "0");
+var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+var yyyy = today.getFullYear();
+today = yyyy + "-" + mm + "-" + dd;
