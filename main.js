@@ -60,30 +60,34 @@ async function weatherOnMars() {
 
   let sol_keys = obj.sol_keys;
 
-  console.log(obj);
-  console.log(sol_keys);
+  //console.log(obj);
+  //console.log(sol_keys);
 
   for (let i = 0; i < sol_keys.length; i++) {
     const sol = sol_keys[i];
 
-    console.log(`sol nr: ${sol}`);
-
+    //console.log(`sol nr: ${sol}`);
+    let info;
     function putDataInListItem(data, id) {
       if (data !== undefined) {
-        console.log(data);
-        document.getElementById(id).innerText = data;
+        //console.log(data);
+        document.getElementById(id).innerText = data += info;
       } else {
         document.getElementById(id).innerText = "N/A";
-        console.log(id + ": NULL");
+        //console.log(id + ": NULL");
       }
     }
+    info = " °F";
     putDataInListItem(obj[sol].AT?.av, "MW-AT");
+    info = " M/S";
     putDataInListItem(obj[sol].PRE?.av, "MW-PRE");
+    info = " Pascal";
     putDataInListItem(obj[sol].HWS?.av, "MW-HWS");
+    info = "";
     putDataInListItem(obj[sol].WD?.av, "MW-WD");
     putDataInListItem(obj[sol].Season, "MW-season");
-    putDataInListItem(obj[sol].First_UTC, "MW-firstUtc");
-    putDataInListItem(obj[sol].Last_UTC, "MW-lastUtc");
+    //putDataInListItem(obj[sol].First_UTC, "MW-firstUtc");
+    //putDataInListItem(obj[sol].Last_UTC, "MW-lastUtc");
     /*
     if (obj[sol].AT != undefined) {
       console.log(obj[sol].AT.av);
@@ -151,17 +155,18 @@ document.getElementById("asteroidsNeoWs-btn").onclick = async function () {
   let response = await fetch(url);
   let obj = await response.json();
 
-  let nearEarth = obj.near_earth_objects;
+  let nearEarth = obj.near_earth_objects[today];
 
-  console.log(obj);
-  console.log(obj.near_earth_objects);
+  //console.log(obj);
+  //console.log(obj.near_earth_objects[today]);
 
-  //for (let i = 0; i < nearEarth.length; i++) {
-  //  const astroids = nearEarth[i];
+  for (let i = 0; i < nearEarth.length; i++) {
+    const astroid = nearEarth[i];
 
-  //  console.log(`Astroids: ${astroids}`);
-  //}
-
+    console.log(`Name: ${astroid.name}`);
+    console.log(`ID: ${astroid.id}`);
+    console.log(`Hazard: ${astroid.is_potentially_hazardous_asteroid}`);
+  }
   console.log("vvvvvvvvvvvvvvvvvvvvvvvvvv");
   console.log("NAME: " + obj.near_earth_objects[today][0].name);
   console.log(
@@ -175,3 +180,9 @@ var dd = String(today.getDate()).padStart(2, "0");
 var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
 today = yyyy + "-" + mm + "-" + dd;
+
+function newListItem() {
+  const newList = document.createElement("li");
+  const newContent = document.createTextNode("Hej");
+  newList.appendChild(newContent);
+}
