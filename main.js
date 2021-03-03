@@ -42,7 +42,9 @@ document.getElementById("dailyFacts-btn").onclick = async function () {
   document.getElementById("picExplanation").innerText = imgExplanation;
 };
 
-document.getElementById("marsBtn").onclick = async function () {
+weatherOnMars();
+
+async function weatherOnMars() {
   let url = new URL(
     "https://api.nasa.gov/insight_weather/?api_key=PCIlTkyhqe1nkB34QyF9XmZzzAj0RgkrFySr1uac&feedtype=json&ver=1.0"
   );
@@ -72,7 +74,7 @@ document.getElementById("marsBtn").onclick = async function () {
         document.getElementById(id).innerText = data;
       } else {
         document.getElementById(id).innerText = "N/A";
-        console.log("AT: NULL");
+        console.log(id + ": NULL");
       }
     }
     putDataInListItem(obj[sol].AT?.av, "MW-AT");
@@ -139,7 +141,7 @@ document.getElementById("marsBtn").onclick = async function () {
     ●JSO[sol].HWS.av - horizontal wind speed, metres per second
 */
   }
-};
+}
 
 document.getElementById("asteroidsNeoWs-btn").onclick = async function () {
   let url = new URL(

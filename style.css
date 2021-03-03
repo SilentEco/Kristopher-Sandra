@@ -11,12 +11,11 @@ body {
 }
 
 main {
-    display: flex;
-    flex-direction: row;
-    border: solid blue 2px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  border: solid blue 2px;
+  justify-content: space-between;
 }
-
 
 /* BUTTONS */
 
@@ -34,7 +33,6 @@ main {
   margin: 60px;
 }
 
-
 /* MIDDLE */
 
 img {
@@ -43,7 +41,7 @@ img {
   width: 500px;
   box-shadow: 2px 2px 4px lightgray;
 }
-p {
+#picExplanation {
   margin-top: 30px;
   width: 620px;
   text-shadow: 2px 2px 7px lightgray;
@@ -59,8 +57,19 @@ p {
   height: 600px;
   border: solid lime 2px;
   color: antiquewhite;
+  background-color: black;
+  opacity: 0.8;
 }
 
+h1 {
+  color: rgb(219, 23, 23);
+  text-shadow: 1px 1px 9px rgb(219, 23, 23);
+}
+
+#right > h4 {
+  margin-top: 12px;
+  color: whitesmoke;
+}
 
 /* FOOTER */
 footer {
