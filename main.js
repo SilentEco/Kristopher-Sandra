@@ -58,11 +58,31 @@ document.getElementById("marsBtn").onclick = async function () {
 
   let sol_keys = obj.sol_keys;
 
+  console.log(obj);
+  console.log(sol_keys);
+
   for (let i = 0; i < sol_keys.length; i++) {
     const sol = sol_keys[i];
 
     console.log(`sol nr: ${sol}`);
 
+    function putDataInListItem(data, id) {
+      if (data !== undefined) {
+        console.log(data);
+        document.getElementById(id).innerText = data;
+      } else {
+        document.getElementById(id).innerText = "N/A";
+        console.log("AT: NULL");
+      }
+    }
+    putDataInListItem(obj[sol].AT?.av, "MW-AT");
+    putDataInListItem(obj[sol].PRE?.av, "MW-PRE");
+    putDataInListItem(obj[sol].HWS?.av, "MW-HWS");
+    putDataInListItem(obj[sol].WD?.av, "MW-WD");
+    putDataInListItem(obj[sol].Season, "MW-season");
+    putDataInListItem(obj[sol].First_UTC, "MW-firstUtc");
+    putDataInListItem(obj[sol].Last_UTC, "MW-lastUtc");
+    /*
     if (obj[sol].AT != undefined) {
       console.log(obj[sol].AT.av);
       document.getElementById("MW-AT").innerText = obj[sol].AT.av;
@@ -107,11 +127,11 @@ document.getElementById("marsBtn").onclick = async function () {
     }
     if (obj[sol].Last_UTC != undefined) {
       console.log(obj[sol].Last_UTC);
-      document.getElementById("MW-AT").innerText = obj[sol].Last_UTC;
+      document.getElementById("MW-lastUtc").innerText = obj[sol].Last_UTC;
     } else {
       document.getElementById("MW-lastUtc").innerText = "N/A";
       console.log("Last_UTC: NULL");
-    }
+    }/*
 
     /*
     ●JSO[sol].AT.av - atmospheric temperature, degrees Celsius
