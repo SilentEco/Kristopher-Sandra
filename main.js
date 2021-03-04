@@ -1,6 +1,9 @@
+"use strict";
+
 /* Min API Key dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf */
+
 document.getElementById("notificationsFromNasa").onclick = function (){
-  fetch ("https://api.nasa.gov/DONKI/notifications?startDate=2014-05-01&endDate=2014-05-08&type=all&api_key=dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf")
+  fetch ("https://api.nasa.gov/DONKI/FLR?startDate=2021-02-26&endDate=yyyy-MM-dd&api_key=dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf")
  
   .then(response => {
     return response.json();
@@ -8,12 +11,11 @@ document.getElementById("notificationsFromNasa").onclick = function (){
 
   .then(notifications =>{
     console.log(notifications);
-  });
-  
-  let imgUrl = obj.hdurl;
-  let imgExplanation = obj.explanation
-  document.getElementById("spacePics").src = imgUrl;
-  document.getElementById("picExplanation").innerText = imgExplanation;
+    
+    document.getElementById("spacePics").src = notifications;
+    document.getElementById("picExplanation").innerText = notifications;
+
+  });   
 };
 
 
