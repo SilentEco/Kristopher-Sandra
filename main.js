@@ -1,64 +1,31 @@
 "use strict";
 
-/* Min API Key dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf */
-
-document.getElementById("notificationsFromNasa").onclick = function (){
-  fetch ("https://api.nasa.gov/DONKI/FLR?startDate=2021-02-26&endDate=yyyy-MM-dd&api_key=dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf")
- 
-  .then(response => {
-    return response.json();
-  })
-
-  .then(notifications =>{
-    console.log(notifications);
-    
-    document.getElementById("spacePics").src = notifications;
-    document.getElementById("picExplanation").innerText = notifications;
-
-  });   
-};
-
-
-document.getElementById("dailyPicture").onclick = async function () {
-  let url = new URL(
-    "https://api.nasa.gov/planetary/apod?api_key=PCIlTkyhqe1nkB34QyF9XmZzzAj0RgkrFySr1uac"
-  );
-
-  let response;
-  try {
-    response = await fetch(url);
-  } catch (error) {
-    console.log(error);
-    return;
-  }
-  let obj = await response.json();
-
-  let imgUrl = obj.hdurl;
-  let imgExplanation = obj.explanation;
-
-  document.getElementById("spacePics").src = imgUrl;
-  document.getElementById("picExplanation").innerText = imgExplanation;
-}; 
- 
- /*let xhr = new XMLHttpRequest();
-  xhr.open("GET", url);
-  xhr.responseType = "json";
-
-  xhr.onload = function () {
-    if (xhr.status != 200) {
-      alert("ERROR:");
-    } else {
-      console.log(xhr.status + " " + xhr.statusText);
-      console.log(xhr.response);
-    }
-
-    console.log(xhr.response.hdurl);
-
-    let imgUrl = xhr.response.hdurl;
-    let imgExplanation = xhr.response.explanation;
-
-    document.getElementById("spacePics").src = imgUrl;
-    document.getElementById("picExplanation").innerText = imgExplanation;
-  };
-  xhr.send();
+/*
+Min API Key dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf 
 */
+
+//Detta gör så att när man trycker på knappen så ska infon komma fram.
+document.getElementById("earthImagery").onclick = async function (){
+
+  //Här görs en "ny" url för att kunna hämta datan från Nasa
+
+  // Sverige 2020-11-08
+  let url = new URL("https://api.nasa.gov/planetary/earth/assets?lon=18.64&lat=60.12&date=2020-11-08&&dim=0.10&api_key=dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf");
+  
+  let response = await fetch(url);
+  let obj = await response.json();
+ 
+  /*
+  Här på console. logg så kollade jag i etapper på hur jag skulle få ut en del av infon.
+  console.log(obj) så fick man se vad objektet innehöll. står det tex url för att få tag på bilden
+  så dubbelkollade jag genom att skriva (obj.url). När det va enbart länken till bilden så gjorde jag en
+  "ny" variabel som gjorde att jag fick tag i länken för bilden och kunde göra så att den visades på webbsidan.
+  */
+
+  //console.log(obj);
+
+  let image = obj.url;
+  
+  // här så gör den så att den visas på webbsidan.
+  document.getElementById("spacePics").src = image;
+};
