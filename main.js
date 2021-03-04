@@ -41,21 +41,15 @@ async function weatherOnMars() {
 
   let sol_keys = obj.sol_keys;
 
-  //console.log(obj);
-  //console.log(sol_keys);
-
   for (let i = 0; i < sol_keys.length; i++) {
     const sol = sol_keys[i];
 
-    //console.log(`sol nr: ${sol}`);
     let info;
     function putDataInListItem(data, id) {
       if (data !== undefined) {
-        //console.log(data);
         document.getElementById(id).innerText = data += info;
       } else {
         document.getElementById(id).innerText = "N/A";
-        //console.log(id + ": NULL");
       }
     }
     info = " °F";
@@ -67,64 +61,6 @@ async function weatherOnMars() {
     info = "";
     putDataInListItem(obj[sol].WD?.av, "MW-WD");
     putDataInListItem(obj[sol].Season, "MW-season");
-    //putDataInListItem(obj[sol].First_UTC, "MW-firstUtc");
-    //putDataInListItem(obj[sol].Last_UTC, "MW-lastUtc");
-    /*
-    if (obj[sol].AT != undefined) {
-      console.log(obj[sol].AT.av);
-      document.getElementById("MW-AT").innerText = obj[sol].AT.av;
-    } else {
-      document.getElementById("MW-AT").innerText = "N/A";
-      console.log("AT: NULL");
-    }
-    if (obj[sol].PRE != undefined) {
-      console.log(obj[sol].PRE.av);
-      document.getElementById("MW-PRE").innerText = obj[sol].PRE.av;
-    } else {
-      document.getElementById("MW-PRE").innerText = "N/A";
-      console.log("PRE: NULL");
-    }
-    if (obj[sol].HWS != undefined) {
-      console.log(obj[sol].HWS.av);
-      document.getElementById("MW-HWS").innerText = obj[sol].HWS.av;
-    } else {
-      document.getElementById("MW-HWS").innerText = "N/A";
-      console.log("HWS: NULL");
-    }
-    if (obj[sol].WD.most_common != undefined) {
-      console.log(obj[sol].WD.most_common.ct);
-      document.getElementById("MW-WD").innerText = obj[sol].WD.ct;
-    } else {
-      document.getElementById("MW-WD").innerText = "N/A";
-      console.log("WD: NULL");
-    }
-    if (obj[sol].Season != undefined) {
-      console.log(obj[sol].Season);
-      document.getElementById("MW-season").innerText = obj[sol].Season;
-    } else {
-      document.getElementById("MW-season").innerText = "N/A";
-      console.log("Season: NULL");
-    }
-    if (obj[sol].First_UTC != undefined) {
-      console.log(obj[sol].First_UTC);
-      document.getElementById("MW-firstUtc").innerText = obj[sol].First_UTC;
-    } else {
-      document.getElementById("MW-firstUtc").innerText = "N/A";
-      console.log("First_UTC: NULL");
-    }
-    if (obj[sol].Last_UTC != undefined) {
-      console.log(obj[sol].Last_UTC);
-      document.getElementById("MW-lastUtc").innerText = obj[sol].Last_UTC;
-    } else {
-      document.getElementById("MW-lastUtc").innerText = "N/A";
-      console.log("Last_UTC: NULL");
-    }/*
-
-    /*
-    ●JSO[sol].AT.av - atmospheric temperature, degrees Celsius
-    ●JSO[sol].PRE.av - atmospheric pressure, Pascals
-    ●JSO[sol].HWS.av - horizontal wind speed, metres per second
-*/
   }
 }
 weatherOnMars();
@@ -184,6 +120,14 @@ today = yyyy + "-" + mm + "-" + dd;
 //Detta gör så att när man trycker på knappen så ska infon komma fram.
 document.getElementById("earthImagery-btn").onclick = async function () {
   //Här görs en "ny" url för att kunna hämta datan från Nasa
+
+  /* Återställer */
+  document.getElementById("astroidTitle").innerText = "";
+  document.getElementById("astroidList").innerText = "";
+  document.getElementById("astroidText").innerText = "";
+  document.getElementById("spacePicsTitle").innerText = "";
+  document.getElementById("spacePics").src = "";
+  document.getElementById("picExplanation").innerText = "";
 
   // Sverige 2020-11-08
   let url = new URL(
