@@ -157,15 +157,23 @@ document.getElementById("asteroidsNeoWs-btn").onclick = async function () {
 
   let nearEarth = obj.near_earth_objects[today];
 
+  //newListItem();
   //console.log(obj);
   //console.log(obj.near_earth_objects[today]);
 
   for (let i = 0; i < nearEarth.length; i++) {
     const astroid = nearEarth[i];
 
-    console.log(`Name: ${astroid.name}`);
-    console.log(`ID: ${astroid.id}`);
-    console.log(`Hazard: ${astroid.is_potentially_hazardous_asteroid}`);
+    //console.log(`Name: ${astroid.name}`);
+    //console.log(`ID: ${astroid.id}`);
+    //console.log(`Hazard: ${astroid.is_potentially_hazardous_asteroid}`);
+
+    const newList = document.createElement("LI");
+    const newContent = document.createTextNode(
+      `NAME: ${astroid.name}\nID: ${astroid.id}\nHazard: ${astroid.is_potentially_hazardous_asteroid}`
+    );
+    newList.appendChild(newContent);
+    document.getElementById("astroidList").appendChild(newList);
   }
   console.log("vvvvvvvvvvvvvvvvvvvvvvvvvv");
   console.log("NAME: " + obj.near_earth_objects[today][0].name);
@@ -181,8 +189,13 @@ var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
 today = yyyy + "-" + mm + "-" + dd;
 
-function newListItem() {
-  const newList = document.createElement("li");
-  const newContent = document.createTextNode("Hej");
-  newList.appendChild(newContent);
-}
+//function newListItem() {
+//  const newList = document.createElement("LI");
+//  const newContent = document.createTextNode(
+//    `ID: ${astroid.id}\nID: ${astroid.id}\nHazard: ${astroid.is_potentially_hazardous_asteroid}`
+//  );
+//
+//  newList.appendChild(newContent);
+//
+//  document.getElementById("astroidList").appendChild(newList);
+//}
