@@ -7,13 +7,11 @@ body {
   margin: 10px;
   background-image: url("space.png");
   background-repeat: repeat;
-  border: solid red 2px;
 }
 
 main {
   display: flex;
   flex-direction: row;
-  border: solid blue 2px;
   justify-content: space-between;
 }
 
