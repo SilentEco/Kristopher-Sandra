@@ -4,6 +4,9 @@
 Min API Key dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf 
 */
 
+
+//Sandras lilla del
+
 //Detta gör så att när man trycker på knappen så ska infon komma fram.
 document.getElementById("earthImagery").onclick = async function (){
 
@@ -25,7 +28,7 @@ document.getElementById("earthImagery").onclick = async function (){
   //console.log(obj);
 
   let image = obj.url;
-  
+
   // här så gör den så att den visas på webbsidan.
   document.getElementById("spacePics").src = image;
 };
