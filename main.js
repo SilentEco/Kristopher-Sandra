@@ -157,7 +157,7 @@ document.getElementById("asteroidsNeoWs-btn").onclick = async function () {
     const newLink = document.createElement("a");
     const linkText = document.createTextNode("Learn more");
     newLink.appendChild(linkText);
-    newLink.title = "Test";
+    newLink.title = "Click to learn more!";
     newLink.href = astroid.nasa_jpl_url;
 
     /*  Skapar en ny lista med astroid info */
@@ -179,20 +179,20 @@ var mm = String(today.getMonth() + 1).padStart(2, "0");
 var yyyy = today.getFullYear();
 today = yyyy + "-" + mm + "-" + dd;
 
-
 //Sandras lilla del
 
 //Detta gör så att när man trycker på knappen så ska infon komma fram.
-document.getElementById("earthImagery-btn").onclick = async function (){
-
+document.getElementById("earthImagery-btn").onclick = async function () {
   //Här görs en "ny" url för att kunna hämta datan från Nasa
 
   // Sverige 2020-11-08
-  let url = new URL("https://api.nasa.gov/planetary/earth/assets?lon=18.64&lat=60.12&date=2020-11-08&&dim=0.10&api_key=dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf");
-  
+  let url = new URL(
+    "https://api.nasa.gov/planetary/earth/assets?lon=18.64&lat=60.12&date=2020-11-08&&dim=0.10&api_key=dWzZWJW6v4s6mdpvB49DzO6iF7eeM4wRw7ZFsQZf"
+  );
+
   let response = await fetch(url);
   let obj = await response.json();
- 
+
   /*
   Här på console. logg så kollade jag i etapper på hur jag skulle få ut en del av infon.
   console.log(obj) så fick man se vad objektet innehöll. står det tex url för att få tag på bilden
