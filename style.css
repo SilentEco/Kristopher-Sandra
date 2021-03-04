@@ -49,6 +49,38 @@ img {
   text-align: center;
 }
 
+#spacePicsTitle {
+  margin-top: 7px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 17px lightgray;
+  color: lightgrey;
+  text-align: center;
+}
+
+#astroidList {
+  list-style: none;
+  color: lightgrey;
+  text-align: center;
+}
+
+#astroidList li {
+  padding-top: 30px;
+}
+
+#astroidTitle {
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 57px lightgray;
+  color: yellow;
+  text-align: center;
+}
+
+#astroidText {
+  margin-top: 4px;
+  font-size: 20px;
+  color: whitesmoke;
+  text-align: center;
+}
+
 /* WEATHER */
 #right {
   display: flex;

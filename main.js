@@ -1,30 +1,11 @@
 document.getElementById("dailyFacts-btn").onclick = async function () {
+  /* Återställer */
+  document.getElementById("astroidTitle").innerText = "";
+  document.getElementById("astroidList").innerText = "";
+  document.getElementById("astroidText").innerText = "";
   let url = new URL(
     "https://api.nasa.gov/planetary/apod?api_key=PCIlTkyhqe1nkB34QyF9XmZzzAj0RgkrFySr1uac"
   );
-  /*
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", url);
-  xhr.responseType = "json";
-
-  xhr.onload = function () {
-    if (xhr.status != 200) {
-      alert("ERROR:");
-    } else {    
-      console.log(xhr.status + " " + xhr.statusText);
-      console.log(xhr.response);
-    }
-
-    console.log(xhr.response.hdurl);
-
-    let imgUrl = xhr.response.hdurl;
-    let imgExplanation = xhr.response.explanation;
-
-    document.getElementById("spacePics").src = imgUrl;
-    document.getElementById("picExplanation").innerText = imgExplanation;
-  };
-  xhr.send();
-*/
 
   let response;
   try {
@@ -35,14 +16,14 @@ document.getElementById("dailyFacts-btn").onclick = async function () {
   }
   let obj = await response.json();
 
+  let imgTitle = obj.title;
   let imgUrl = obj.hdurl;
   let imgExplanation = obj.explanation;
 
+  document.getElementById("spacePicsTitle").innerText = imgTitle;
   document.getElementById("spacePics").src = imgUrl;
   document.getElementById("picExplanation").innerText = imgExplanation;
 };
-
-weatherOnMars();
 
 async function weatherOnMars() {
   let url = new URL(
@@ -146,56 +127,54 @@ async function weatherOnMars() {
 */
   }
 }
+weatherOnMars();
 
 document.getElementById("asteroidsNeoWs-btn").onclick = async function () {
+  /*  Återställer */
+  document.getElementById("spacePicsTitle").innerText = "";
+  document.getElementById("spacePics").src = "";
+  document.getElementById("picExplanation").innerText = "";
+
   let url = new URL(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=PCIlTkyhqe1nkB34QyF9XmZzzAj0RgkrFySr1uac`
   );
-
   let response = await fetch(url);
   let obj = await response.json();
-
   let nearEarth = obj.near_earth_objects[today];
 
-  //newListItem();
-  //console.log(obj);
-  //console.log(obj.near_earth_objects[today]);
+  document.getElementById("");
+  document.getElementById("astroidTitle").innerText =
+    "Astroids near earth today";
+  document.getElementById("astroidText").innerText =
+    "Here you see the name and the ID of the astroids near earth today.\n Hazard returns a 'true' or 'false' statement declaring if the astdroid is a potential threat to earth.\n Click the 'Learn more' button to read more about the astroid.";
+
+  const astroidUrl = nearEarth.nasa_jpl_url;
 
   for (let i = 0; i < nearEarth.length; i++) {
     const astroid = nearEarth[i];
 
-    //console.log(`Name: ${astroid.name}`);
-    //console.log(`ID: ${astroid.id}`);
-    //console.log(`Hazard: ${astroid.is_potentially_hazardous_asteroid}`);
+    /* Länkar till astroiden */
+    const newLink = document.createElement("a");
+    const linkText = document.createTextNode("Learn more");
+    newLink.appendChild(linkText);
+    newLink.title = "Test";
+    newLink.href = astroid.nasa_jpl_url;
 
+    /*  Skapar en ny lista med astroid info */
     const newList = document.createElement("LI");
     const newContent = document.createTextNode(
-      `NAME: ${astroid.name}\nID: ${astroid.id}\nHazard: ${astroid.is_potentially_hazardous_asteroid}`
+      `NAME: ${astroid.name}\tID: ${astroid.id}\tHazard: ${astroid.is_potentially_hazardous_asteroid} `
     );
     newList.appendChild(newContent);
     document.getElementById("astroidList").appendChild(newList);
+
+    document.getElementById("astroidList").appendChild(newLink);
   }
-  console.log("vvvvvvvvvvvvvvvvvvvvvvvvvv");
-  console.log("NAME: " + obj.near_earth_objects[today][0].name);
-  console.log(
-    "HAZARDOUS: " +
-      obj.near_earth_objects[today][0].is_potentially_hazardous_asteroid
-  );
 };
 
+/*  Dagens datum  */
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, "0");
-var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+var mm = String(today.getMonth() + 1).padStart(2, "0");
 var yyyy = today.getFullYear();
 today = yyyy + "-" + mm + "-" + dd;
-
-//function newListItem() {
-//  const newList = document.createElement("LI");
-//  const newContent = document.createTextNode(
-//    `ID: ${astroid.id}\nID: ${astroid.id}\nHazard: ${astroid.is_potentially_hazardous_asteroid}`
-//  );
-//
-//  newList.appendChild(newContent);
-//
-//  document.getElementById("astroidList").appendChild(newList);
-//}
