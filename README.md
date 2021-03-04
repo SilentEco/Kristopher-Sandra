@@ -2,7 +2,11 @@ https://silenteco.github.io/Kristopher-Sandra/
 
 Resurser:
 
-DONKI: https://ccmc.gsfc.nasa.gov/support/DONKI-webservices.php
+InSight: Mars Weather Service API: https://mars.nasa.gov/insight/weather/
+
+Asteroids - NeoWs
+
+APOD: https://apod.nasa.gov/apod/astropix.html
 
 Bootstrap Knapparna:
 https://getbootstrap.com/docs/5.0/components/buttons/
